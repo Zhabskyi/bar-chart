@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: rgb(80, 80, 80);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+
+.container {
+  max-width: 2200px;
+  margin: 0 auto;
+}
+
+.header {
+  min-height: 100px;
+}
+
+.axis {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.bar {
+  height: 100px;
+  width: 20px;
+  background-color: blueviolet;
+}
