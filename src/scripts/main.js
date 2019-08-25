@@ -5,20 +5,29 @@ const options = {
   colors: ['Maroon', 'Blue', 'Salmon', 'DarkSeaGreen', 'Purple', 'DarkSlateGray', 'Crimson'],
   valuePosition: 'center',
   barSpacing: '40',
-  barWidth: '30'
+  barWidth: '30',
+  labels: [
+    {'55': 'label1'},
+    {'80': 'label2'},
+    {'11': 'label3'},
+    {'40': 'label4'},
+    {'50': 'label5'},
+    {'60': 'label6'},
+    {'20': 'label7'},
+    {'70': 'label8'}
+  ]
 }
 
 const element = document.querySelector('#root');
-const header = document.querySelector('.header');
+
+const maxNumber = Math.max(...data);
+const scaleNumber = (options.axisHeight/maxNumber)*0.95;
 
 const axisWidth = defineWidth(data);
-let textPosition = 0;
-
-
-
 
 function drawBarChart(data, options, element) {
   renderCharts(data, options);
+  renderLabels(data, options);
 }
 
 function renderAxis(element) {
@@ -34,9 +43,6 @@ function renderAxis(element) {
 
 function renderCharts(data, options) {
   const axis = renderAxis(element);
-  const maxNumber = Math.max(...data);
-
-  scaleNumber = (options.axisHeight/maxNumber)*0.95;
 
   const scaledArr = scaleArray(data, scaleNumber);
 
@@ -62,6 +68,26 @@ function defineWidth(data) {
 
 function scaleArray(arr, scaleNumber) {
   return arr.map(el => el*scaleNumber)
+}
+
+function renderLabels(data, options) {
+  let names = [];
+  let bars = $('.bar');
+  let labels = $('<div></div>')
+    .addClass('label')
+    .text('Hellow')
+    .appendTo(bars);
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i] == options.labels[i]) {
+        names = [...names, options.labels.data[i]]
+      }
+    }
+    console.log(names);
+
+    for (let i = 0; i < bars.length; i++) {
+      labels[i].style.top = `${bars[i].clientHeight + 10}px`;
+      }
 }
 
 

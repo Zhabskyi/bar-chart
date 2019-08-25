@@ -55,6 +55,13 @@ button {
   height: 100px;
   width: 30px;
   color: white;
-  font-size: 12;
+  font-size: 16px;
   background-color: blueviolet;
+}
+
+.label {
+  color: black;
+  font-size: 16px;
+  position: absolute;
+  left: 0;
 }
